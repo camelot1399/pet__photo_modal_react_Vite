@@ -1,27 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "../components/modal/Modal";
 import { Photos } from "../components/photos/Photos";
-import { createPhotosActions, getPhotos } from "../store/photos";
+import { setModal } from "../store/modal/actions";
+import { getModalStatus } from "../store/modal/selectors";
+import { createPhotosActions, getPhotos, getSelectedPhoto } from "../store/photos";
+import { apiPhotosList } from "../utils/api";
 
 export const HomePage = () => {
     const dispatch = useDispatch();
+    const photos = useSelector(getPhotos);
+    const selectedPhoto = useSelector(getSelectedPhoto);
+    const isModal = useSelector(getModalStatus);
 
     useEffect(() => {
         fetchPhotos();
     }, [])
 
-    const photos = useSelector(getPhotos);
-    const [isModal, setIsModal] = useState(true);
-
-    console.log('photos', photos);
+    useEffect(() => {
+        if (selectedPhoto !== null) {
+            dispatch(setModal(true));
+        } else {
+            dispatch(setModal(false));
+        }
+    }, [selectedPhoto])
 
     const fetchPhotos = async () => {
-        const API_PHOTOS = 'https://boiling-refuge-66454.herokuapp.com/images';
-        const photos = await fetch(API_PHOTOS);
+        const photos = await fetch(apiPhotosList());
         const res = await photos.json();
-
-        console.log('res', res);
 
         dispatch(createPhotosActions(res));
     }

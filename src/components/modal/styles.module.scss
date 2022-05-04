@@ -1,4 +1,7 @@
 .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
     &__wrapper {
         position: absolute;
@@ -10,13 +13,22 @@
     }
     &__content {
         position: absolute;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        color: black;
+        top: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        color: black;
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        min-width: 300px;
+        gap: 20px;
+    }
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: 100%;
     }
 }

@@ -7,7 +7,7 @@ export const createPhotosActions = (payload) => ({
     payload
 });
 
-export const setSelectedPhoto = (payload) => ({
+export const setSelectedPhotoAction = (payload) => ({
     type: SET_SELECTED_PHOTO,
     payload
 });

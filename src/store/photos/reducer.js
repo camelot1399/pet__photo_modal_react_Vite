@@ -6,8 +6,6 @@ const initialState = {
 }
 
 export const PhotosReducer = (state = initialState, {type, payload}) => {
-    console.log('type', type);
-    console.log('payload', payload);
     switch (type) {
         case CREATE_PHOTOS:
             return {
