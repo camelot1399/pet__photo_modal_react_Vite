@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setModal } from "../../store/modal/actions";
 import { getSelectedPhoto } from "../../store/photos";
+import { Comments } from "../comments/Comments";
+import { FormSendComment } from "../form/formSendComment/formSendComment";
 import style from './styles.module.scss';
 
 export const Modal = () => {
@@ -20,11 +22,12 @@ export const Modal = () => {
                 </div>
 
                 <div className={style.modal__body}>
-                    {item.id}
-                </div>
+                    <h1>Большая фотка</h1>
+                    <img className={style.photoImg} src={item.url} alt="" />
 
-                <div className={style.modal__footer}>
-                    footer
+                    <Comments comments={item.comments} />
+
+                    <FormSendComment />
                 </div>
 
             </div>
