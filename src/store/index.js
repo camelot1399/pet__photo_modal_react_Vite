@@ -1,8 +1,8 @@
 import {createStore, combineReducers} from 'redux';
-import { listReducer } from './list'
+import { PhotosReducer } from './photos';
 
 const reducers = {
-  list: listReducer,
+  photos: PhotosReducer,
 }
 
 const reducer = combineReducers(reducers);
