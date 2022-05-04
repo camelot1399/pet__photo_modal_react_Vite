@@ -20,7 +20,7 @@ export const Modal = () => {
                 </div>
 
                 <div className={style.modal__body}>
-                    body
+                    {item.id}
                 </div>
 
                 <div className={style.modal__footer}>

@@ -34,7 +34,6 @@ export const HomePage = () => {
 
     return (
         <div className="home">
-            <h1>Карточки</h1>
 
             {!photos && (<div>фоток нет</div>)}
             {photos && (
